@@ -31,13 +31,28 @@ def main():
         
         #Debug info
         print(turn)
+        print(game.board)
         print(board)
         
         #MiniMax Algorithm  - Replace with your algorithm
         x,y = minimax.minimax_Algorithm(game, turn, depth)
-        
         # Print the chosen move
         print("Selected move:", (x, y))
+        
+        
+        ####
+        # board = local board we have; not updated by server
+        # game.board = is the updated version of the board game from server
+        # if (x,y, turn, False)   <----- the false does not commit the new pieces. it just checks them
+        #
+        # we need to verify if the update is being passed properly  (x,y) coordinates
+        # we need to make sure that the board being read is the correct board (game.board)
+        # we still the entire contents of game since thats whats being used to step and read board
+        ##########
+        
+        
+        
+        
         
         ###############################
         
