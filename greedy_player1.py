@@ -33,12 +33,19 @@ def main():
         print(turn)
         print(board)
         
-        #MiniMax Algorithm  - Replace with your algorithm
-        x,y = minimax.minimax_Algorithm(game, turn, depth)
-        
-        # Print the chosen move
-        print("Selected move:", (x, y))
-        
+        #Local Greedy - Replace with your algorithm
+        x = -1
+        y = -1
+        max = 0
+        game.board = board
+        for i in range(8):
+            for j in range(8):
+                cur = game.step(i, j, turn, False)
+                if cur > max:
+                    max = cur
+                    x, y = i, j
+        ###################ALGORITHM HERE REPLACE LOCAL GREEDY ABOVE LATER#############################
+        #x,y = minimax.minimax_Algorithm(game, turn, depth)
         ###############################
         
         #Send your move to the server. Send (x,y) = (-1,-1) to tell the server you have no hand to play

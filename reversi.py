@@ -1,5 +1,6 @@
 #Zijie Zhang, Sep.24/2023
 
+import pygame
 import numpy as np
 
 class reversi:
