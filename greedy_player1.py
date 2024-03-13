@@ -4,7 +4,7 @@ import pygame
 import numpy as np
 import socket, pickle
 from reversi import reversi
-from minimax_player import MiniMax
+from minimax_algorithm import MiniMax
 
 def main():
     game_socket = socket.socket()
