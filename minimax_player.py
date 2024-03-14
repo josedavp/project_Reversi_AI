@@ -28,11 +28,14 @@ def main():
         if turn == 0:
             game_socket.close()
             return
-        
+        game.board = board
         #Debug info
         print(turn)
+        print()
         print(game.board)
-        print(board)
+        print()
+        #print()
+        #print(board)
         
         #MiniMax Algorithm  - Replace with your algorithm
         x,y = minimax.minimax_Algorithm(game, turn, depth)
@@ -41,15 +44,12 @@ def main():
         
         
         ####
-        # board = local board we have; not updated by server
-        # game.board = is the updated version of the board game from server
-        # if (x,y, turn, False)   <----- the false does not commit the new pieces. it just checks them
-        #
-        # we need to verify if the update is being passed properly  (x,y) coordinates
-        # we need to make sure that the board being read is the correct board (game.board)
+        #  So turn doesn't need to be updated since it does so on its own as long as x, y is -1, -1
+        # look at greedy player as an example of how it runs. Your now in the minimax algorithm.
         # we still the entire contents of game since thats whats being used to step and read board
+        # could turn not be updated?
         ##########
-        
+        game.step(x,y, turn, True)
         
         
         

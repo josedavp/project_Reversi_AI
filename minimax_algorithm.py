@@ -21,7 +21,7 @@ class MiniMax:
         for x in range(0, len(game.board)):
             for y in range(0, len(game.board[x])):
                 #if depth > 0 and game.step(i, j, turn, False) != -3: # or later on switch -3 to a 0
-                if game.step(x, y, turn, False) > 0: # -3:  # Check if move is legal; -3 for now; change for depth maybe
+                if game.step(x, y, turn, False) != -3:  # Check if move is legal; -3 for now; change for depth maybe
                 # if game.legal_move(x,y, turn):  
                 #     game.make_move(x,y, turn)
                     score = self.min_value(game, depth -1, -turn)
@@ -33,6 +33,10 @@ class MiniMax:
                     if score > best_score:
                         best_score = score
                         best_move = (x, y)
+        if best_move == None:
+            best_move = (-1, -1)
+            return -1, -1
+        #game.step(best_move[0], best_move[1], turn, True)
         return best_move
 
     def max_value(self, game, depth, turn): #add alpha, beta in parameters for pruning
@@ -54,7 +58,7 @@ class MiniMax:
     
         for x in range(0, len(game.board)):
             for y in range(0, len(game.board[x])):
-                if game.step(x, y, turn, False) > 0: #!= -3:  # Check if move is legal; -3 for now; change for depth maybe
+                if game.step(x, y, turn, False) != -3:  # Check if move is legal; -3 for now; change for depth maybe
                     score = self.min_value(game, depth - 1, -turn)
                     max_score = max(max_score, score) #correct?
                         
@@ -81,7 +85,7 @@ class MiniMax:
        
         for x in range(0, len(game.board)):
             for y in range(0, len(game.board[x])):
-                if game.step(x, y, turn, False) >0: # ! = -3:  
+                if game.step(x, y, turn, False) != -3:  
                     score = self.max_value(game, depth - 1, -turn)
                     minimum_score = min(minimum_score, score) #score 
                         
@@ -101,8 +105,4 @@ class MiniMax:
         if turn == 1:
             return game.white_count - game.black_count
         
-        return game.black_count - game.white_count
-   
-   
-   
-  
+        return game.black_count - game.white_count 
