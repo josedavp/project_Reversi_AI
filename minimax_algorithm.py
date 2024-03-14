@@ -27,7 +27,6 @@ class MiniMax:
                     score = self.min_value(game, depth -1, -turn)
                 #     game.undo_move()
                     # score = self.min_value(game, depth - 1, -turn) # THIS IS THE TARGETED AREA FOR ISSUE
-                    
                     if score > best_score:
                         best_score = score
                         best_move = (x, y)
