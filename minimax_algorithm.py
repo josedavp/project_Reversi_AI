@@ -21,14 +21,12 @@ class MiniMax:
         for x in range(0, len(game.board)):
             for y in range(0, len(game.board[x])):
                 #if depth > 0 and game.step(i, j, turn, False) != -3: # or later on switch -3 to a 0
-                if game.step(x, y, turn, False) != -3:  # Check if move is legal; -3 for now; change for depth maybe
+                if game.step(x, y, turn, False) >0:  #!= -3:  # Check if move is legal; -3 for now; change for depth maybe
                 # if game.legal_move(x,y, turn):  
                 #     game.make_move(x,y, turn)
                     score = self.min_value(game, depth -1, -turn)
                 #     game.undo_move()
                     # score = self.min_value(game, depth - 1, -turn) # THIS IS THE TARGETED AREA FOR ISSUE
-                    
-                    
                     
                     if score > best_score:
                         best_score = score
@@ -58,7 +56,7 @@ class MiniMax:
     
         for x in range(0, len(game.board)):
             for y in range(0, len(game.board[x])):
-                if game.step(x, y, turn, False) != -3:  # Check if move is legal; -3 for now; change for depth maybe
+                if game.step(x, y, turn, False) >0: #!= -3:  # Check if move is legal; -3 for now; change for depth maybe
                     score = self.min_value(game, depth - 1, -turn)
                     max_score = max(max_score, score) #correct?
                         
@@ -85,7 +83,7 @@ class MiniMax:
        
         for x in range(0, len(game.board)):
             for y in range(0, len(game.board[x])):
-                if game.step(x, y, turn, False) != -3:  
+                if game.step(x, y, turn, False) >0: # != -3:  
                     score = self.max_value(game, depth - 1, -turn)
                     minimum_score = min(minimum_score, score) #score 
                         

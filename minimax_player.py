@@ -31,9 +31,9 @@ def main():
         game.board = board
         #Debug info
         print(turn)
-        print()
-        print(game.board)
-        print()
+        #print()
+        #print(game.board)
+        #print()
         #print()
         #print(board)
         
@@ -41,7 +41,7 @@ def main():
         x,y = minimax.minimax_Algorithm(game, turn, depth)
         # Print the chosen move
         print("Selected move:", (x, y))
-        
+        print()
         
         ####
         #  So turn doesn't need to be updated since it does so on its own as long as x, y is -1, -1
