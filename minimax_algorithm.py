@@ -32,7 +32,7 @@ class MiniMax:
                         best_move = (x, y)
         if best_move == None:
             best_move = (-1, -1)
-            return -1, -1
+            return best_move
         #game.step(best_move[0], best_move[1], turn, True)
         return best_move
 
