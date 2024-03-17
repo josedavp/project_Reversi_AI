@@ -13,7 +13,7 @@ def main():
     minimax = MiniMax()
     
     #############
-    depth = 4 #figure out correct depth or if needs to be adjusted dynamically
+    depth = 5 #figure out correct depth or if needs to be adjusted dynamically
     ###############
 
     while True:
