@@ -4,8 +4,8 @@ import pygame
 import numpy as np
 import socket, pickle
 from reversi import reversi
-from minimax_algorithm import MiniMax
-import time
+from minimax_algorithmPTH import MiniMax
+import time 
 
 def main():
     game_socket = socket.socket()
@@ -14,7 +14,7 @@ def main():
     minimax = MiniMax()
     
     #############
-    max_depth = 5 #figure out correct depth or if needs to be adjusted dynamically
+    max_depth = 4 #figure out correct depth or if needs to be adjusted dynamically
     ###############
 
     while True:
@@ -25,7 +25,6 @@ def main():
         data = game_socket.recv(4096)
         turn, board = pickle.loads(data)
         start = time.time()
-
         #Turn = 0 indicates game ended
         if turn == 0:
             game_socket.close()
@@ -33,7 +32,7 @@ def main():
         game.board = board
         #Debug info
         print(turn)
-        depth = 2
+        depth = 3
         while time.time() - start < 5:
             if depth <= max_depth:
                 #MiniMax Algorithm  - Replace with your algorithm
@@ -41,6 +40,9 @@ def main():
                 depth += 1
             else:
                 break
+        
+        #MiniMax Algorithm  - Replace with your algorithm
+        x,y = minimax.minimax_Algorithm(game, turn, depth)
         # Print the chosen move
         print("Selected move:", (x, y))
         print()

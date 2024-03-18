@@ -88,7 +88,7 @@ class MiniMax:
                         
         return minimum_score
    
-    
+    ### THE ISSUE IS HERE NEEDS A BETTER EVAULATION METHOD
     def evaluate(self, game, turn):
         """Check if the game is inline with player score.
 
@@ -103,3 +103,4 @@ class MiniMax:
             return game.white_count - game.black_count
         
         return game.black_count - game.white_count 
+   
